@@ -1,92 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset=amily: Arial, sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darragh Roche - Game Developer</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", "Times New Roman", serif;
             line-height: 1.6;
-            margin: 0;
+            margin: 0 0 0 20px;
             padding: 20px;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            background: #000000 url('https://web.archive.org/web/20090830181624/http://geocities.com/hk/stars.gif');
+            color: #00ff00;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 10px;
         }
         
         .header {
             text-align: center;
             margin-bottom: 30px;
+            background: linear-gradient(to bottom, #006400, #003200);
+            color: #00ff00;
+            padding: 2rem;
+            border: 3px outset #008000;
+            box-shadow: 5px 5px 10px rgba(0, 255, 0, 0.3);
         }
         
-        h1 {
-            color: #2c3e50;
+        .header h1 {
+            margin: 0;
+            color: #00ff00;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px #003200;
+        }
+        
+        .header p {
+            margin: 0.5rem 0;
         }
         
         .section {
+            background: #000000;
+            padding: 20px;
             margin-bottom: 25px;
+            border: 3px outset #008000;
         }
         
         .section-title {
-            color: #34495e;
-            border-bottom: 2px solid #3498db;
+            color: #00ff00;
+            border-bottom: 2px ridge #00ff00;
             padding-bottom: 5px;
+            margin-top: 0;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px #003200;
         }
         
         .experience-item {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .experience-title {
             font-weight: bold;
+            color: #33ff00;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
         
         .experience-date {
-            color: #7f8c8d;
+            color: #11ff00;
             font-style: italic;
+            margin: 5px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            background: linear-gradient(to bottom, #006400, #003200);
+            color: #00ff00;
+            padding: 5px 15px;
+            border: 2px outset #008000;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            background: #000000;
+            border: 2px inset #008000;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .ethereum-address {
+            font-family: "Courier New", monospace;
+            background: #001a00;
+            border: 2px inset #008000;
+            padding: 5px 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .project-card {
+            background: #000000;
+            border: 3px outset #008000;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            color: #00ff00;
+            text-shadow: 2px 2px 4px #003200;
+        }
+
+        .project-description {
+            color: #00ff00;
+        }
+
+        .project-tech {
+            color: #00b300;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(to bottom, #006400, #003200);
+            color: #00ff00;
+            padding: 8px 16px;
+            border: 2px outset #008000;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(to bottom, #008000, #004d00);
+        }
+
+        .download-btn:active {
+            border-style: inset;
+        }
+
+        /* Add some decorative elements */
+        .section::before {
+            content: "⚡";
+            margin-right: 5px;
+        }
+
+        .section::after {
+            content: "⚡";
+            margin-left: 5px;
+        }
+
+        /* Add a "Under Construction" gif */
+        .header::after {
+            content: "";
+            display: block;
+            height: 50px;
+            background: url('https://web.archive.org/web/20091027130150/http://es.geocities.com/web_html_2000/construccion.gif') no-repeat center;
+            margin-top: 10px;
+        }
+
+        /* Add a visitor counter style */
+        .visitor-counter {
+            text-align: center;
+            margin-top: 20px;
+            font-family: "Digital", "Courier New", monospace;
+            color: #00ff00;
+            background: #000000;
+            border: 2px inset #008000;
+            padding: 5px;
+            width: fit-content;
+            margin: 20px auto;
+        }
+
+        .main-content {
+            max-width: 850px;
+        }
+
+        .sidebar {
+            background: #000000;
+            border: 3px outset #008000;
+            padding: 5px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .ad-banner {
+            background: linear-gradient(to bottom, #006400, #003200);
+            border: 2px outset #008000;
+            padding: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #00ff00;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 4px #003200;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px #00ff00;
+            }
+            to {
+                box-shadow: 0 0 20px #00ff00;
+            }
+        }
+
+        .ad-banner img {
+            max-width: 100%;
+            height: auto;
+            max-height: 180px;
+            margin-bottom: 10px;
+            object-fit: contain;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Darragh Roche</h1>
-        <p>Game Developer</p>
-        <p>Email: Darragh Roche | Phone: (123) 456-7890</p>
-        <p>Location: Ballincollig, Cork</p>
-        <p>Ethereum: 0x2C9107D73cE7be95A68De80f70003D38E81ce3f7</p>
-    </div>
+    <div class="main-content">
+        <div class="header">
+            <h1>Darragh Roche</h1>
+            <p>Game Developer</p>
+            <div class="contact-info">
+                <p>📧 DarraghRoche08@gmail.com</p>
+                <p>�� +353 85 236 5873</p>
+                <p>📍 Ballincollig, Cork</p>
+            </div>
+            <p class="ethereum-address">ETH: 0x2C9107D73cE7be95A68De80f70003D38E81ce3f7</p>
+        </div>
 
-    <div class="section">
-        <h2 class="section-title">Summary</h2>
-        <p>Enthusiastic 16-year-old student with a strong passion for programming and game development. Self-taught in Lua and C-Sharp, with experience creating small games and applications. Actively learning new programming languages and game development tools through online courses and personal projects. Seeking an entry-level position or internship to gain professional experience while continuing to develop technical skills. Quick learner with strong problem-solving abilities and eager to contribute to a dynamic development team.</p>
-    </div>
+        <div class="section">
+            <h2 class="section-title">Summary</h2>
+            <p>Enthusiastic 16-year-old student with a strong passion for programming and game development. Self-taught in Lua and C-Sharp, with experience creating small games and applications. Actively learning new programming languages and game development tools through online courses and personal projects. Seeking an entry-level position or internship to gain professional experience while continuing to develop technical skills. Quick learner with strong problem-solving abilities and eager to contribute to a dynamic development team.</p>
+        </div>
 
-    <div class="section">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-item">
-            <p class="experience-title">Assistant Dog Groomer - Shannons Dog Grooming.</p>
-            <p class="experience-date">06/23 - 08/23</p>
-            <ul>
-                <li>Groomed dogs and provided a high-quality grooming experience</li>
-                <li>Learned about the dog grooming industry and the importance of customer service</li>
-                <li>Gained experience in handling and caring for dogs</li>
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-item">
+                <p class="experience-title">Assistant Dog Groomer - Shannons Dog Grooming</p>
+                <p class="experience-date">June 2023 - August 2023</p>
+                <ul>
+                    <li>Groomed dogs and provided a high-quality grooming experience</li>
+                    <li>Learned about the dog grooming industry and the importance of customer service</li>
+                    <li>Gained experience in handling and caring for dogs</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="experience-item">
+                <p class="experience-title">Junior Certificate</p>
+                <p class="experience-date">2021 - 2027</p>
+                <p class="experience-date">Colaiste Choilm</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <ul class="skills-list">
+                <li>C-Sharp</li>
+                <li>Lua Script</li>
+                <li>HTML</li>
             </ul>
         </div>
-        
-    </div>
 
-    <div class="section">
-        <h2 class="section-title">Education</h2>
-        <div class="experience-item">
-            <p class="experience-title">Junior Certifcate</p>
-            <p class="experience-date">2021 - 2027</p>
-            <p class="experience-date">Colaiste Choilm</p>
+        <div class="section">
+            <h2 class="section-title">Personal Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Project Name 1</h3>
+                    <p class="project-description">A brief description of your first game project and what you learned while making it.</p>
+                    <div class="project-tech">Made with: C#, Unity</div>
+                    <a href="#" class="download-btn">Download Game</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Project Name 2</h3>
+                    <p class="project-description">Description of your second game project, highlighting key features and technologies used.</p>
+                    <div class="project-tech">Made with: C++, Unreal Engine 5</div>
+                    <a href="#" class="download-btn">Download Game</a>
+                </div>
+            </div>
+        </div>
 
+        <div class="visitor-counter">
+            Visitors: 000001337
         </div>
     </div>
 
-    <div class="section">
-        <h2 class="section-title">Skills</h2>
-        <ul>
-            <li>C-Sharp</li>
-            <li>Lua Script</li>
-            <li>HTML</li>
-        </ul>
+    <div class="sidebar">
+        <div class="ad-banner">
+            <h3>Project 1</h3>
+            <img src="https://web.archive.org/web/20090830181624/http://geocities.com/hk/new.gif" alt="">
+            <p>Photo of project 1 here</p>
+        </div>
+
+        <div class="ad-banner">
+            <h3>Project 2</h3>
+            <img src="https://web.archive.org/web/20090830181624/http://geocities.com/hk/hot.gif" alt="">
+            <p>Photo of project 2 here</p>
+        </div>
+
+        <div class="ad-banner">
+            <h3>Project 3</h3>
+            <img src="https://web.archive.org/web/20090830181624/http://geocities.com/hk/cool.gif" alt="">
+            <p>photo of project 3 here</p>
+        </div>
     </div>
 </body>
 </html>
