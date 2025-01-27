@@ -17,5 +17,8 @@
     "url": "https://github.com/Darragh08/Darragh08.github.io/issues"
   },
   "homepage": "https://github.com/Darragh08/Darragh08.github.io#readme",
-  "browserslist": "> 0.5%, last 2 versions, not dead"
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
 }
