@@ -1,4 +1,29 @@
+// Import viem
+import * as chains from 'https://esm.sh/viem/chains'
+import { createPublicClient, http } from 'https://esm.sh/viem'
+
 console.log("Hello World!"); 
+
+const optimism = chains.optimism
+const base = chains.base
+const mainnet = chains.mainnet
+
+const optimismClient = createPublicClient({
+    chain: optimism,
+    transport: http()
+})
+
+const baseClient = createPublicClient({
+    chain: base,
+    transport: http()
+})
+
+const ethereumClient = createPublicClient({
+    chain: mainnet,
+    transport: http()
+})
+
+console.log({ optimismClient, baseClient, ethereumClient })
 
 // Object to store all template variables
 const templateVariables = {

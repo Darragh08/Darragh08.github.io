@@ -2,6 +2,7 @@
   "name": "darragh08.github.io",
   "version": "1.0.0",
   "description": "Darragh Roche CV",
+  "type": "module",
   "source": "index.html",
   "scripts": {
     "start": "live-server --port=1234"
@@ -20,5 +21,8 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "viem": "^2.22.15"
   }
 }
