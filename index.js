@@ -115,8 +115,84 @@ const fetchBalances = async () => {
     }
 }
 
-// Run replacement when DOM is loaded
+// Add this function to your existing index.js
+const initializeSkillBars = () => {
+    document.querySelectorAll('.skill-item').forEach(item => {
+        const percentageElement = item.querySelector('.skill-percentage');
+        const progressBar = item.querySelector('.progress');
+        
+        if (percentageElement && progressBar) {
+            const percentage = percentageElement.textContent;
+            progressBar.style.width = percentage;
+        }
+    });
+};
+
+// Add these functions to your existing index.js
+const handleScroll = () => {
+    const scrollButton = document.getElementById('scroll-to-top');
+    if (!scrollButton) {
+        console.error('Scroll button not found!');
+        return;
+    }
+    
+    console.log('Current scroll position:', window.scrollY); // Debug log
+    
+    if (window.scrollY > 300) {
+        scrollButton.classList.add('visible');
+        console.log('Button should be visible'); // Debug log
+    } else {
+        scrollButton.classList.remove('visible');
+        console.log('Button should be hidden'); // Debug log
+    }
+};
+
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
+
+// Add these quotes array and function to your existing index.js
+const quotes = [
+    "The only way to do great work is to love what you do. - Steve Jobs",
+    "Code is like humor. When you have to explain it, it's bad. - Cory House",
+    "Programming isn't about what you know; it's about what you can figure out. - Chris Pine"
+];
+
+let currentQuoteIndex = 0;
+
+const cycleQuotes = () => {
+    const quoteElement = document.getElementById('quote-cycler');
+    if (!quoteElement) return;
+
+    // Fade out
+    quoteElement.style.opacity = '0';
+    
+    setTimeout(() => {
+        // Update quote
+        quoteElement.textContent = quotes[currentQuoteIndex];
+        // Fade in
+        quoteElement.style.opacity = '1';
+        
+        // Update index for next cycle
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+    }, 500);
+};
+
+// Add this to your DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', () => {
     replaceTemplateVariables();
-    fetchBalances(); // Now we can call fetchBalances here
+    fetchBalances();
+    initializeSkillBars();
+    
+    // Add scroll to top functionality
+    const scrollButton = document.getElementById('scroll-to-top');
+    scrollButton.addEventListener('click', scrollToTop);
+    window.addEventListener('scroll', handleScroll);
+
+    // Start quote cycling
+    cycleQuotes(); // Show first quote immediately
+    setInterval(cycleQuotes, 5000); // Cycle every 5 seconds
 }); 
